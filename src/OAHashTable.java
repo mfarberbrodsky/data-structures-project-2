@@ -1,7 +1,3 @@
-import IHashTable.KeyAlreadyExistsException;
-import IHashTable.KeyDoesntExistException;
-import IHashTable.TableIsFullException;
-
 public abstract class OAHashTable implements IHashTable {
 	
 	private static HashTableElement DELETED = new HashTableElement(0, 0);
