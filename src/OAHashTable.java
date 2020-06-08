@@ -1,5 +1,11 @@
+import IHashTable.KeyAlreadyExistsException;
+import IHashTable.KeyDoesntExistException;
+import IHashTable.TableIsFullException;
 
 public abstract class OAHashTable implements IHashTable {
+	
+	private static HashTableElement DELETED = new HashTableElement(0, 0);
+	private static HashTableElement elem;
 	
 	private HashTableElement [] table;
 	
@@ -11,7 +17,17 @@ public abstract class OAHashTable implements IHashTable {
 	
 	@Override
 	public HashTableElement Find(long key) {
-		// TODO implement find
+		int index;
+		for (int i = 0; i < this.table.length ; i++) {
+			index = this.Hash(key, i);
+			elem = this.table[index];
+			if (elem == null) {
+				return null;
+			}
+			if ((elem.GetKey() == key) && (elem != DELETED)) {
+				return this.table[index];
+			}
+		}
 		return null;
 	}
 	
@@ -22,7 +38,19 @@ public abstract class OAHashTable implements IHashTable {
 	
 	@Override
 	public void Delete(long key) throws KeyDoesntExistException {
-		// TODO implement deletion
+		int index;
+		for (int i = 0; i <  this.table.length; i++) {
+			index = this.Hash(key, i);
+			elem = this.table[index];
+			if (elem == null) {
+				throw new KeyDoesntExistException(key);
+			}
+			if ((elem.GetKey() == key) && (elem != DELETED)) {
+				this.table[index] = DELETED;
+			}
+		}
+		
+		throw new KeyDoesntExistException(key);
 	}
 	
 	/**
