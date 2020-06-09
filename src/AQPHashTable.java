@@ -15,7 +15,9 @@ public class AQPHashTable extends OAHashTable {
         if (i % 2 == 0) {
             return (modhash.Hash(x) + i * i) % m;
         } else {
-            return (modhash.Hash(x) - i * i) % m;
+            // floorMod is used because modhash.Hash(x) - i * i may be negative,
+            // and in that case regular modulo produces negative numbers
+            return Math.floorMod(modhash.Hash(x) - i * i, m);
         }
     }
 }
