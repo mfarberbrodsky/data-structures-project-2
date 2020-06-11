@@ -27,7 +27,7 @@ public abstract class OAHashTable implements IHashTable {
         for (int i = 0; i < this.table.length; i++) {
             int index = this.Hash(hte.GetKey(), i);
             HashTableElement elem = this.table[index];
-            if (elem == null) {
+            if ((elem == null) || (elem == DELETED)) {
                 this.table[index] = hte;
                 return;
             }
