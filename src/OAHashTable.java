@@ -31,7 +31,7 @@ public abstract class OAHashTable implements IHashTable {
                 this.table[index] = hte;
                 return;
             }
-            if ((elem.GetKey() == hte.GetKey()) && (elem != DELETED)) {
+            if (elem.GetKey() == hte.GetKey()) {
                 throw new KeyAlreadyExistsException(hte);
             }
         }
@@ -48,6 +48,7 @@ public abstract class OAHashTable implements IHashTable {
             }
             if ((elem.GetKey() == key) && (elem != DELETED)) {
                 this.table[index] = DELETED;
+                return;
             }
         }
         throw new KeyDoesntExistException(key);

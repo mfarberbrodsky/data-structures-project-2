@@ -1,4 +1,4 @@
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ModHash {
     private final int m;
@@ -14,12 +14,9 @@ public class ModHash {
     }
 
     public static ModHash GetFunc(int m, long p) {
-        // We will maybe have to change this,
-        // not sure if this is the best way to generate random long numbers
-
-        Random random = new Random();
-        long a = Math.abs(random.nextLong()) % (p - 1) + 1;
-        long b = Math.abs(random.nextLong()) % p;
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+        long a = random.nextLong(1, p);
+        long b = random.nextLong(0, p);
         return new ModHash(m, p, a, b);
     }
 
