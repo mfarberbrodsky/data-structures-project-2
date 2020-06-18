@@ -13,6 +13,8 @@ public class ModHash {
         this.b = b;
     }
 
+    // Returns a random modular hash function, with parameters m (range size) and p (large prime).
+    // Complexity: O(1)
     public static ModHash GetFunc(int m, long p) {
         ThreadLocalRandom random = ThreadLocalRandom.current();
         long a = random.nextLong(1, p);
@@ -20,6 +22,8 @@ public class ModHash {
         return new ModHash(m, p, a, b);
     }
 
+    // Computes the hash function on a key.
+    // Complexity: O(1)
     public int Hash(long key) {
         return (int) (((a * key + b) % p) % m);
     }

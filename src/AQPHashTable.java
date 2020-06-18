@@ -10,6 +10,7 @@ public class AQPHashTable extends OAHashTable {
         modhash = ModHash.GetFunc(m, p);
     }
 
+    // Return ith table index in probing sequence, where indices increase and decrease (alternating) quadratically
     @Override
     public int Hash(long x, int i) {
         if (i % 2 == 0) {
