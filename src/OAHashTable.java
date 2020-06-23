@@ -28,17 +28,21 @@ public abstract class OAHashTable implements IHashTable {
     // Complexity: O(1) expected time if load factor is constant, O(m) worst case time
     @Override
     public void Insert(HashTableElement hte) throws TableIsFullException, KeyAlreadyExistsException {
+    	
+    	HashTableElement found = Find(hte.GetKey());
+    	if (found != null) {
+    		throw new KeyAlreadyExistsException(hte);
+    	}
+    	
         for (int i = 0; i < this.table.length; i++) {
-            int index = this.Hash(hte.GetKey(), i); // ith index in probing sequence
+            int index = this.Hash(hte.GetKey(), i);
             HashTableElement elem = this.table[index];
-            if ((elem == null) || (elem == DELETED)) { // item can be inserted
+            if ((elem == null) || (elem == DELETED)) {
                 this.table[index] = hte;
                 return;
             }
-            if (elem.GetKey() == hte.GetKey()) {
-                throw new KeyAlreadyExistsException(hte); // identical key in probing sequence
-            }
         }
+
         throw new TableIsFullException(hte); // all indices in probing sequence are full
     }
 
