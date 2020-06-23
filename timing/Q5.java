@@ -47,7 +47,7 @@ public class Q5 {
         long[] a = new long[n];
         // Generate sequence
         for (int i = 0; i < n; i++) {
-            a[i] = 100 * i + (int) (Math.random() * 100);
+            a[i] = 100L * (long)i + (long) (Math.random() * 100);
         }
 
         // Insert sequence

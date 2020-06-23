@@ -17,7 +17,7 @@ public class DoubleHashTable extends OAHashTable {
 	// index depends on both hash functions
     @Override
     public int Hash(long x, int i) {
-        return ((modhash1.Hash(x) + i * (modhash2.Hash(x) + 1)) % m);
+        return Math.floorMod(modhash1.Hash(x) + i * (modhash2.Hash(x) + 1), m);
     }
 
 }

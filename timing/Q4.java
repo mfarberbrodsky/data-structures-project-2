@@ -26,74 +26,63 @@ public class Q4 {
         // should probably ignore the first one because of "load-up" time
 
         //Starting part A.
+        ///usr/lib/jvm/jdk1.8.0_251/bin/java -javaagent:/home/maya/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/lib/idea_rt.jar=35531:/home/maya/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/201.7223.91/bin -Dfile.encoding=UTF-8 -classpath /usr/lib/jvm/jdk1.8.0_251/jre/lib/charsets.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/deploy.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/ext/dnsns.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/ext/jaccess.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/ext/jfxrt.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/ext/localedata.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/ext/nashorn.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/ext/sunec.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/ext/zipfs.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/javaws.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/jce.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/jfr.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/jfxswt.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/jsse.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/management-agent.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/plugin.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/resources.jar:/usr/lib/jvm/jdk1.8.0_251/jre/lib/rt.jar:/home/maya/IdeaProjects/data-structures-project-2/out/production/data-structures-project-2 Q4
+        //Starting part A.
         //Iteration 1
-        //Time linear probing: 1345
-        //Time quadratic probing: 895
-        //Time alternating quadratic probing: 1372
-        //Time double hashing: 1912
+        //Time linear probing: 1412
+        //Time quadratic probing: 1035
+        //Time alternating quadratic probing: 1620
+        //Time double hashing: 2177
         //
         //Iteration 2
-        //Time linear probing: 1244
-        //Time quadratic probing: 1214
-        //Time alternating quadratic probing: 1247
-        //Time double hashing: 1811
+        //Time linear probing: 1439
+        //Time quadratic probing: 1418
+        //Time alternating quadratic probing: 1471
+        //Time double hashing: 2034
         //
         //Iteration 3
-        //Time linear probing: 2176
-        //Time quadratic probing: 1218
-        //Time alternating quadratic probing: 1255
-        //Time double hashing: 1816
+        //Time linear probing: 1625
+        //Time quadratic probing: 2609
+        //Time alternating quadratic probing: 1431
+        //Time double hashing: 1928
         //
         //Iteration 4
-        //Time linear probing: 1244
-        //Time quadratic probing: 1336
-        //Time alternating quadratic probing: 1401
-        //Time double hashing: 1688
+        //Time linear probing: 1560
+        //Time quadratic probing: 1429
+        //Time alternating quadratic probing: 1459
+        //Time double hashing: 2039
         //
         //Iteration 5
-        //Time linear probing: 1232
-        //Time quadratic probing: 1392
-        //Time alternating quadratic probing: 1190
-        //Time double hashing: 1769
+        //Time linear probing: 1433
+        //Time quadratic probing: 1388
+        //Time alternating quadratic probing: 1510
+        //Time double hashing: 1865
         //
         //Starting part B.
         //Iteration 1
-        //Time linear probing: 8839
-        //Time alternating quadratic probing: 6124
-        //Time double hashing: 9334
+        //Time linear probing: 14101
+        //Time alternating quadratic probing: 6946
+        //Time double hashing: 10649
         //
         //Iteration 2
-        //Time linear probing: 11139
-        //Time alternating quadratic probing: 6240
-        //Time double hashing: 9307
+        //Time linear probing: 12774
+        //Time alternating quadratic probing: 6937
+        //Time double hashing: 10616
         //
         //Iteration 3
-        //Time linear probing: 11998
-        //Time alternating quadratic probing: 5691
-        //Time double hashing: 8782
+        //Time linear probing: 14733
+        //Time alternating quadratic probing: 6874
+        //Time double hashing: 10776
         //
         //Iteration 4
-        //Time linear probing: 10577
-        //Time alternating quadratic probing: 6181
-        //Time double hashing: 9307
+        //Time linear probing: 10692
+        //Time alternating quadratic probing: 6808
+        //Time double hashing: 10683
         //
         //Iteration 5
-        //Time linear probing: 9537
-        //Time alternating quadratic probing: 6048
-        //Time double hashing: 9180
-
-        // Average result (ignoring first one in each):
-
-        // Part A
-        // Time linear probing: 1474ms
-        // Time quadratic probing: 1290ms
-        // Time alternating quadratic probing: 1273ms
-        // Time double hashing: 1771ms
-
-        // Part B
-        // Time linear probing: 10813ms
-        // Time alternating quadratic probing: 6040ms
-        // Time double hashing: 9144ms
+        //Time linear probing: 12804
+        //Time alternating quadratic probing: 6813
+        //Time double hashing: 10499
     }
 
     public static void measureAll(int m, long p, int n, boolean doQP) throws IHashTable.TableIsFullException, IHashTable.KeyAlreadyExistsException {
@@ -125,7 +114,7 @@ public class Q4 {
 
         // Generate sequence
         for (int i = 0; i < n; i++) {
-            a[i] = 100 * i + (int) (Math.random() * 100);
+            a[i] = 100L * (long)i + (long) (Math.random() * 100);
         }
 
         // Insert sequence
