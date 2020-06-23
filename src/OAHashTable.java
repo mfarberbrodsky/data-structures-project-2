@@ -7,6 +7,10 @@ public abstract class OAHashTable implements IHashTable {
         this.table = new HashTableElement[m];
     }
 
+    // Checks if an element with this key exists in the table,
+    // if such an element exists, returns the element. 
+    // Otherwise, returns null.
+    
     @Override
     public HashTableElement Find(long key) {
         for (int i = 0; i < this.table.length; i++) {
@@ -25,7 +29,6 @@ public abstract class OAHashTable implements IHashTable {
     // Inserts an hash table element to the hash table,
     // throws KeyAlreadyExistsException if there is an identical key in the hash permutation
     // or TableIsFullException if all cells in the hash permutation were full.
-    // Complexity: O(1) expected time if load factor is constant, O(m) worst case time
     @Override
     public void Insert(HashTableElement hte) throws TableIsFullException, KeyAlreadyExistsException {
     	
@@ -46,6 +49,11 @@ public abstract class OAHashTable implements IHashTable {
         throw new TableIsFullException(hte); // all indices in probing sequence are full
     }
 
+    
+
+    // Removes an element with this key from the hash table if exists,
+    // or throws KeyDoesntExistException.
+    
     @Override
     public void Delete(long key) throws KeyDoesntExistException {
         for (int i = 0; i < this.table.length; i++) {
@@ -55,7 +63,7 @@ public abstract class OAHashTable implements IHashTable {
                 throw new KeyDoesntExistException(key);
             }
             if ((elem.GetKey() == key) && (elem != DELETED)) {
-                this.table[index] = DELETED;
+                this.table[index] = DELETED; // marks the cell. DELETED != null
                 return;
             }
         }

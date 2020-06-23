@@ -56,7 +56,7 @@ public class Q3 {
 		
 		int m = 6571;
 		long p = 1000000007;
-		IHashTable table = new QPHashTable(m, p);
+		IHashTable table = new AQPHashTable(m, p);
 	
 		int a;
 		int b;
